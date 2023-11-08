@@ -16,5 +16,5 @@ diffdist==0.1
 pytorch_lightning==1.6.4
 tqdm==4.64.0
 mmcv==1.6.2
--f https://shi-labs.com/natten/wheels/cu111/torch1.9/index.html  
-natten==0.14.4
+# -f https://shi-labs.com/natten/wheels/cu111/torch1.9/index.html  
+natten==0.14.4 -f https://shi-labs.com/natten/wheels/cu113/torch1.10/index.html
