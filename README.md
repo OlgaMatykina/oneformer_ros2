@@ -35,7 +35,10 @@ source /opt/ros/foxy/setup.bash
 colcon build --packages-select semseg_ros2 --symlink-install
 source install/setup.bash 
 ```
-
+После этого необходимо скачать веса по ссылке и поместить файл в папку 
+```
+~/oneformer_ros2/colcon_ws/src/semseg/weights
+```
 Затем запустить launch, который автоматически запустит необходимые компоненты:
 
 ```
