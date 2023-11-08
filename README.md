@@ -54,7 +54,7 @@ WEIGHTS: /home/docker_oneformer_ros2/colcon_ws/src/semseg/weights/model_0009999.
 ```
 ros2 launch semseg_ros2 oneformer_launch.py
 ```
-
+Для тестирования работы узла нужно поместить ROS-bag в папку ~/oneformer_ros2/colcon_ws.
 Для запуска проигрывания нужно сначала активировать окружение ROS1, затем ROS2:
 ```
 cd ~/colcon_ws
