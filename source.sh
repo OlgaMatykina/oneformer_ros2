@@ -7,7 +7,7 @@ ros2 launch semseg_ros2 oneformer_launch.py
 # sudo apt-get install ros-foxy-image-view
 # cd ~/colcon_ws
 # source /opt/ros/foxy/setup.bash
-# ros2 run image_view image_saver --ros-args -r image:=/sensum/left/segmentation_color #/kitti/camera_color_left/segmentation_color 
+ros2 run image_view image_saver --ros-args -r image:=/sensum/left/segmentation_color #/kitti/camera_color_left/segmentation_color 
 # -p filename_format:=image.jpg
 
 cd ~/colcon_ws

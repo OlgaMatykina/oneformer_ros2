@@ -11,7 +11,8 @@ MODEL:
     DROP_PATH_RATE: 0.3
     PATCH_NORM: True
     PRETRAIN_IMG_SIZE: 384
-  WEIGHTS: /home/docker_oneformer_ros2/colcon_ws/src/semseg/weights/model_0009999.pth # "./outputs/valid_sem_seg_v2/model_0004999.pth" #".outputs/valid_sem_seg_continue/model_0109999.pth" #"./checkpoints/250_16_swin_l_oneformer_mapillary_300k.pth" #"./checkpoints/250_16_swin_l_oneformer_ade20k_160k.pth"
+  WEIGHTS: /home/docker_oneformer_ros2/colcon_ws/src/semseg/weights/model_0009999.pth
+  # WEIGHTS: /home/docker_oneformer_ros2/colcon_ws/src/semseg/weights/model_0009999.pth
   PIXEL_MEAN: [123.675, 116.280, 103.530]
   PIXEL_STD: [58.395, 57.120, 57.375]
   ONE_FORMER:

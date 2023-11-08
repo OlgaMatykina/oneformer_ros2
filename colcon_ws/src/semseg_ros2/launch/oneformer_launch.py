@@ -25,6 +25,7 @@ def generate_launch_description():
         launch.actions.DeclareLaunchArgument(
             'image_topic',
             default_value='image_raw'
+            # default_value='image_rect_color'
         ),
         launch.actions.DeclareLaunchArgument(
             'segmentation_topic',

@@ -31,6 +31,6 @@ docker run -it -d --rm \
         --name oneformer_ros2 \
         --net "host" \
         -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
-        -v /home/matykina_ov/workspace/colcon_ws:/home/docker_oneformer_ros2/colcon_ws:rw \
+        -v /home/matykina_ov/oneformer_ros2/colcon_ws:/home/docker_oneformer_ros2/colcon_ws:rw \
         ${ARCH}foxy/semseg:latest
 xhost -

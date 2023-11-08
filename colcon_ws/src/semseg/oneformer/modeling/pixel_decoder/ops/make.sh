@@ -11,4 +11,4 @@
 # Modified by Bowen Cheng from https://github.com/fundamentalvision/Deformable-DETR
 
 #python3 setup.py build install #--install-dir /home/docker_oneformer/.local/lib/python3.8/site-packages/
-python3 setup.py install --prefix=/home/docker_oneformer/.local
+python3 setup.py install --prefix=/home/docker_oneformer_ros2/.local
