@@ -39,6 +39,16 @@ source install/setup.bash
 ```
 ~/oneformer_ros2/colcon_ws/src/semseg/weights
 ```
+Затем нужно открыть конфигурационный файл, который расположен
+```
+~/oneformer_ros2/colcon_ws/src/semseg/weights/valid/swin/oneformer_swin_large_sem_seg_bs4_640k.yaml
+```
+и изменить название файла с весами (раскомментировать одну из строк):
+```
+WEIGHTS: /home/docker_oneformer_ros2/colcon_ws/src/semseg/weights/model_0009999.pth
+WEIGHTS: /home/docker_oneformer_ros2/colcon_ws/src/semseg/weights/model_0009999.pth
+```
+
 Затем запустить launch, который автоматически запустит необходимые компоненты:
 
 ```
