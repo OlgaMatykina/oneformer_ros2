@@ -45,7 +45,7 @@ source install/setup.bash
 ```
 и изменить название файла с весами (раскомментировать одну из строк):
 ```
-  # WEIGHTS: /home/docker_oneformer_ros2/colcon_ws/src/semseg/weights/train422_steps120k.pth
+  # WEIGHTS: /home/docker_oneformer_ros2/colcon_ws/src/semseg/weights/train1723_steps260k.pth
   # WEIGHTS: /home/docker_oneformer_ros2/colcon_ws/src/semseg/weights/train1723_steps210k.pth
 ```
 
