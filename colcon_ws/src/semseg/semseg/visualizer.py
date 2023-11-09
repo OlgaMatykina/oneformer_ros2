@@ -380,7 +380,16 @@ class Visualizer:
         """
         self.img = np.asarray(img_rgb).clip(0, 255).astype(np.uint8)
         if metadata is None:
-            meta_clss = {0: 'unlabeled',
+            # meta_clss = {0: 'unlabeled',
+            #     1: 'firehose',
+            #     2: 'hose',
+            #     3: 'waste',
+            #     4: 'puddle',
+            #     5: 'breakroad',
+            #     6: 'sidewalk',
+            #     7: 'terrain',
+            #     8: 'road'}
+            meta_clss = {0: 'unlabelled',
                 1: 'firehose',
                 2: 'hose',
                 3: 'waste',
@@ -388,7 +397,8 @@ class Visualizer:
                 5: 'breakroad',
                 6: 'sidewalk',
                 7: 'terrain',
-                8: 'road'}
+                8: 'vegetation',
+                9: 'road'}
             MetadataCatalog.get("valid_sem_seg_val").stuff_classes = list(meta_clss.values())
             MetadataCatalog.get("valid_sem_seg_val").ignore_label = 255
             MetadataCatalog.get("valid_sem_seg_val").stuff_dataset_id_to_contiguous_id = {
@@ -399,17 +409,29 @@ class Visualizer:
                 i: i
                 for i in list(meta_clss.keys())
             }
+            # MetadataCatalog.get("valid_sem_seg_val").stuff_colors = [                    
+            #             (255,255,255), #'unlabeled' : none
+            #             (255,0,0), #'firehose' : red
+            #             (255,165,0), #'hose' : orange
+            #             (0,0,255), #'waste' : blue
+            #             (255,255,0), #'puddle' : yellow
+            #             (0,255,255), #'breakroad' : aqua
+            #             (255,0,255), #'sidewalk' : magenta
+            #             (0,128,0), #'terrain': green
+            #             (250,128,114) #'road' : salmon
+            #             ]
             MetadataCatalog.get("valid_sem_seg_val").stuff_colors = [                    
-                        (255,255,255), #'unlabeled' : none
-                        (255,0,0), #'firehose' : red
-                        (255,165,0), #'hose' : orange
-                        (0,0,255), #'waste' : blue
-                        (255,255,0), #'puddle' : yellow
-                        (0,255,255), #'breakroad' : aqua
-                        (255,0,255), #'sidewalk' : magenta
-                        (0,128,0), #'terrain': green
-                        (250,128,114) #'road' : salmon
-                        ]
+                    (255,255,255), #'unlabelled' : none
+                    (255,0,0), #'firehose' : red
+                    (255,165,0), #'hose' : orange
+                    (0,0,255), #'waste' : blue
+                    (255,255,0), #'puddle' : yellow
+                    (0,255,255), #'breakroad' : aqua
+                    (255,0,255), #'sidewalk' : magenta
+                    (0,128,0), #'terrain': green
+                    (127,72,41), #'vegetation': brown
+                    (250,128,114) #'road' : salmon
+                    ]
 
             metadata = MetadataCatalog.get("valid_sem_seg_val")
             # metadata = MetadataCatalog.get("__nonexist__")
