@@ -42,11 +42,11 @@ source /opt/ros/foxy/setup.bash
 colcon build --packages-select semseg_ros2 --symlink-install
 source install/setup.bash 
 ```
-После этого необходимо скачать веса по [ссылке](https://disk.yandex.ru/d/FjWi-FXI4hl3WA) и поместить файл в папку 
+После этого необходимо скачать веса по [ссылке](https://disk.yandex.ru/d/7HzmomyppZHT4A) и поместить файл в папку 
 ```
 ~/oneformer_ros2/colcon_ws/src/semseg/weights
 ```
-Затем нужно открыть конфигурационный файл, который расположен
+<!-- Затем нужно открыть конфигурационный файл, который расположен
 ```
 ~/oneformer_ros2/colcon_ws/src/semseg/weights/valid/swin/oneformer_swin_large_sem_seg_bs4_640k.yaml
 ```
@@ -55,7 +55,7 @@ source install/setup.bash
   # WEIGHTS: /home/docker_oneformer_ros2/colcon_ws/src/semseg/weights/train1723_steps260k.pth
   # WEIGHTS: /home/docker_oneformer_ros2/colcon_ws/src/semseg/weights/train1723_steps210k.pth
 ```
-
+-->
 Затем запустить launch, который автоматически запустит необходимые компоненты, передав в качестве аргумента image_topic:
 ```
 ros2 launch semseg_ros2 oneformer_launch.py image_topic:=image_rect_color
