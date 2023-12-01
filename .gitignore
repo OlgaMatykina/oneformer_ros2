@@ -1,0 +1,12 @@
+/colcon_ws/cache*
+/colcon_ws/*bag
+/colcon_ws/img.jpg
+/colcon_ws/inspect_inference_stats.py
+/colcon_ws/build
+/colcon_ws/install
+/colcon_ws/log
+/colcon_ws/src/yolo*
+/colcon_ws/src/semseg/weights/model_2734train_10cats.pth
+/colcon_ws/src/semseg/oneformer/__pycache__
+/colcon_ws/src/semseg/semseg/__pycache__
+/colcon_ws/src/semseg_ros2/semseg_ros2/__pycache__/*

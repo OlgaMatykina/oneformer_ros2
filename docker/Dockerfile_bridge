@@ -51,7 +51,7 @@ RUN apt install -y \
     ros-foxy-rosbag2-converter-default-plugins
 
 
-RUN python3 -m pip install opencv-python
+RUN python3 -m pip install opencv-python ultralytics
 
 # add user and his password
 ARG USER=docker_oneformer_ros2

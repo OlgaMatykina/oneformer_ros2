@@ -34,13 +34,17 @@ class VisualizerNode(Node):
         visualizer = Visualizer(image, instance_mode=ColorMode.IMAGE_BW)
 
         segmentation_color = visualizer.draw_sem_seg(segmentation, alpha=0.7)
-        segmentation_color.save('/home/docker_oneformer_ros2/colcon_ws/src/semseg_ros2/semseg_ros2/visualizer_images/3.jpg')
-        segmentation_color = cv2.imread('/home/docker_oneformer_ros2/colcon_ws/src/semseg_ros2/semseg_ros2/visualizer_images/3.jpg')
+        segmentation_color = segmentation_color.get_image()
+        # cv2.imwrite('img.jpg', img)
+        # with open('cache.log', 'w') as f:
+        #     f.write(str(type(img)))
+        # segmentation_color.save('/home/docker_oneformer_ros2/colcon_ws/src/semseg_ros2/semseg_ros2/visualizer_images/3.jpg')
+        # segmentation_color = cv2.imread('/home/docker_oneformer_ros2/colcon_ws/src/semseg_ros2/semseg_ros2/visualizer_images/3.jpg')
 
         # segmentation_color = SemanticSegmentator.colorize(segmentation)
         # cv2.imwrite('/home/docker_oneformer_ros2/colcon_ws/src/semseg_ros2/semseg_ros2/visualizer_images/4.jpg', segmentation_color)
 
-        segm_color_msg = self.br.cv2_to_imgmsg(segmentation_color, 'rgb8')
+        segm_color_msg = self.br.cv2_to_imgmsg(segmentation_color, 'bgr8')
         segm_color_msg.header = segm_msg.header
 
         self.pub_segmentation_color.publish(segm_color_msg)
