@@ -9,12 +9,16 @@ def generate_launch_description():
         # Параметры модели
         launch.actions.DeclareLaunchArgument(
             'cfg',
-            default_value='/home/docker_oneformer_ros2/colcon_ws/src/semseg/weights/valid/swin/oneformer_swin_large_sem_seg_bs4_640k.yaml'
+            default_value='/home/docker_oneformer_ros2/colcon_ws/src/semseg/configs/config_10cats.yaml'
         ),
         launch.actions.DeclareLaunchArgument(
-            'treshold',
-            default_value='0.5'
+            'cat_num',
+            default_value='10'
         ),
+        # launch.actions.DeclareLaunchArgument(
+        #     'treshold',
+        #     default_value='0.5'
+        # ),
 
         # Настройка топиков
         launch.actions.DeclareLaunchArgument(
@@ -49,7 +53,8 @@ def generate_launch_description():
             parameters=[
                 {
                     'cfg': launch.substitutions.LaunchConfiguration('cfg'),
-                    'treshold': launch.substitutions.LaunchConfiguration('treshold')
+                    'cat_num': launch.substitutions.LaunchConfiguration('cat_num'),
+                    # 'treshold': launch.substitutions.LaunchConfiguration('treshold')
                 }
             ],
             output="screen"

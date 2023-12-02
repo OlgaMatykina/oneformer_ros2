@@ -22,7 +22,7 @@ from detectron2.projects.deeplab import add_deeplab_config
 
 class SemanticSegmentator:
 
-    def __init__(self, config_file):
+    def __init__(self, config_file, cat_num):
         # meta_clss = {0: 'unlabeled',
         #     1: 'firehose',
         #     2: 'hose',
@@ -32,16 +32,30 @@ class SemanticSegmentator:
         #     6: 'sidewalk',
         #     7: 'terrain',
         #     8: 'road'}
-        meta_clss = {0: 'unlabelled',
-            1: 'firehose',
-            2: 'hose',
-            3: 'waste',
-            4: 'puddle',
-            5: 'breakroad',
-            6: 'sidewalk',
-            7: 'terrain',
-            8: 'vegetation',
-            9: 'road'}
+        print(cat_num)
+        print(type(cat_num))
+        self.cat_num=cat_num
+        if self.cat_num==10:
+            meta_clss = {0: 'unlabelled',
+                1: 'firehose',
+                2: 'hose',
+                3: 'waste',
+                4: 'puddle',
+                5: 'breakroad',
+                6: 'sidewalk',
+                7: 'terrain',
+                8: 'vegetation',
+                9: 'road'}
+        elif self.cat_num==6:
+            meta_clss = {0: 'unlabelled',
+                1: 'breakroad',
+                2: 'sidewalk',
+                3: 'terrain',
+                4: 'vegetation',
+                5: 'road'}
+        else:
+            print("Enter number of categories")
+            
         MetadataCatalog.get("valid_sem_seg_val").stuff_classes = list(meta_clss.values())
         MetadataCatalog.get("valid_sem_seg_val").ignore_label = 255
         MetadataCatalog.get("valid_sem_seg_val").stuff_dataset_id_to_contiguous_id = {
@@ -63,18 +77,30 @@ class SemanticSegmentator:
         #             (0,128,0), #'terrain': green
         #             (250,128,114) #'road' : salmon
         #             ]
-        MetadataCatalog.get("valid_sem_seg_val").stuff_colors = [                    
-                    (255,255,255), #'unlabelled' : none
-                    (255,0,0), #'firehose' : red
-                    (255,165,0), #'hose' : orange
-                    (0,0,255), #'waste' : blue
-                    (255,255,0), #'puddle' : yellow
-                    (0,255,255), #'breakroad' : aqua
-                    (255,0,255), #'sidewalk' : magenta
-                    (0,128,0), #'terrain': green
-                    (127,72,41), #'vegetation': brown
-                    (250,128,114) #'road' : salmon
-                    ]
+        if self.cat_num==10:
+            MetadataCatalog.get("valid_sem_seg_val").stuff_colors = [                    
+                        (255,255,255), #'unlabelled' : none
+                        (255,0,0), #'firehose' : red
+                        (255,165,0), #'hose' : orange
+                        (0,0,255), #'waste' : blue
+                        (255,255,0), #'puddle' : yellow
+                        (0,255,255), #'breakroad' : aqua
+                        (255,0,255), #'sidewalk' : magenta
+                        (0,128,0), #'terrain': green
+                        (127,72,41), #'vegetation': brown
+                        (250,128,114) #'road' : salmon
+                        ]
+        elif self.cat_num==6:
+            MetadataCatalog.get("valid_sem_seg_val").stuff_colors = [                    
+                        (255,255,255), #'unlabelled' : none
+                        (0,255,255), #'breakroad' : aqua
+                        (255,0,255), #'sidewalk' : magenta
+                        (0,128,0), #'terrain': green
+                        (127,72,41), #'vegetation': brown
+                        (250,128,114) #'road' : salmon
+                        ]
+        else:
+            print("Enter number of categories")
 
         self.metadata = MetadataCatalog.get("valid_sem_seg_val")
         
@@ -91,7 +117,7 @@ class SemanticSegmentator:
         self.predictor = DefaultPredictor(cfg)
 
 
-    def inference(self, image, treshold=0.5):
+    def inference(self, image):
         
         # batch = SemanticSegmentator.to_tensor(image)
         image = image[:, :, ::-1]

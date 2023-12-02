@@ -17,10 +17,17 @@ class SemSegNode(Node):
         self.declare_parameter('cfg')
         self.cfg = self.get_parameter('cfg').get_parameter_value().string_value
 
-        self.declare_parameter('treshold', 0.5)
-        self.treshold = self.get_parameter('treshold').get_parameter_value().double_value
+        self.declare_parameter('cat_num')
+        self.cat_num = self.get_parameter('cat_num').get_parameter_value().integer_value
 
-        self.segmentator = SemanticSegmentator(self.cfg)
+        # self.declare_parameter('treshold', 0.5)
+        # self.treshold = self.get_parameter('treshold').get_parameter_value().double_value
+
+
+        print(self.cat_num)
+        print(type(self.cat_num))
+
+        self.segmentator = SemanticSegmentator(self.cfg, self.cat_num)
 
         self.br = CvBridge()
 
@@ -34,9 +41,9 @@ class SemSegNode(Node):
         image = self.br.imgmsg_to_cv2(image_msg, desired_encoding='bgr8')
 
         self.speed_meter.start()
-        segmentation = self.segmentator.inference(image, self.treshold)
+        segmentation = self.segmentator.inference(image)
         # print(segmentation)
-        cv2.imwrite('/home/docker_oneformer_ros2/colcon_ws/src/semseg_ros2/semseg_ros2/visualizer_images/2.jpg', segmentation)
+        # cv2.imwrite('/home/docker_oneformer_ros2/colcon_ws/src/semseg_ros2/semseg_ros2/visualizer_images/2.jpg', segmentation)
         # cv2.imwrite('/home/docker_oneformer_ros2/colcon_ws/src/semseg_ros2/semseg_ros2/visualizer_images/2.jpg', self.segmentator.colorize(segmentation))
         self.speed_meter.stop()
 
