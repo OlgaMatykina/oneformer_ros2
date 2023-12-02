@@ -58,7 +58,7 @@ source install/setup.bash
 -->
 Затем запустить launch, который автоматически запустит необходимые компоненты, передав в качестве аргумента image_topic:
 ```
-ros2 launch semseg_ros2 oneformer_launch.py image_topic:=image_rect_color
+ros2 launch semseg_ros2 oneformer_launch.py cfg:=/home/docker_oneformer_ros2/colcon_ws/src/semseg/configs/config_6cats.yaml cat_num:=6
 ```
 Для тестирования работы узла нужно поместить ROS-bag в папку ~/oneformer_ros2/colcon_ws.
 Для запуска проигрывания нужно сначала активировать окружение ROS1, затем ROS2:
