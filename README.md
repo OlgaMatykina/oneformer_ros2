@@ -74,8 +74,8 @@ cd ~/colcon_ws
 source /opt/ros/noetic/setup.bash
 source /opt/ros/foxy/setup.bash
 ros2 bag play -r 0.07 -s rosbag_v2 camera_2023-07-26-09-55-05_2.bag
-<!-- ros2 bag play -r 0.07 -s rosbag_v2 camera_2023-06-30-08-58-37_2.bag -->
 ```
+<!-- ros2 bag play -r 0.07 -s rosbag_v2 camera_2023-06-30-08-58-37_2.bag -->
 
 Визуализировать результаты работы можно с помощью rviz
 ```
