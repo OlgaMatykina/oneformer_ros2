@@ -42,7 +42,7 @@ source /opt/ros/foxy/setup.bash
 colcon build --packages-select semseg_ros2 --symlink-install
 source install/setup.bash 
 ```
-После этого необходимо скачать веса по [ссылке](https://disk.yandex.ru/d/7HzmomyppZHT4A) и поместить файл в папку 
+После этого необходимо скачать веса по [ссылке](https://disk.yandex.ru/d/D2SmHXbhlHP5Uw) и поместить файл в папку 
 ```
 ~/oneformer_ros2/colcon_ws/src/semseg/weights
 ```
@@ -56,9 +56,16 @@ source install/setup.bash
   # WEIGHTS: /home/docker_oneformer_ros2/colcon_ws/src/semseg/weights/train1723_steps210k.pth
 ```
 -->
-Затем запустить launch, который автоматически запустит необходимые компоненты, передав в качестве аргумента image_topic:
+Затем запустить launch, который автоматически запустит необходимые компоненты, передав значения аргументов:
+1. camera_ns
+2. image_topic
+3. cfg - принимает следующие значения:
+    - home/docker_oneformer_ros2/colcon_ws/src/semseg/configs/config_6cats.yaml
+    - home/docker_oneformer_ros2/colcon_ws/src/semseg/configs/config_10cats.yaml
+4. cat_num - принимает значения 6 и 10
+
 ```
-ros2 launch semseg_ros2 oneformer_launch.py cfg:=/home/docker_oneformer_ros2/colcon_ws/src/semseg/configs/config_6cats.yaml cat_num:=6
+ros2 launch semseg_ros2 oneformer_launch.py camera_ns:="/sensum/left/" image_topic:=image_rect_color cfg:=/home/docker_oneformer_ros2/colcon_ws/src/semseg/configs/config_6cats.yaml cat_num:=6
 ```
 Для тестирования работы узла нужно поместить ROS-bag в папку ~/oneformer_ros2/colcon_ws.
 Для запуска проигрывания нужно сначала активировать окружение ROS1, затем ROS2:
@@ -67,6 +74,7 @@ cd ~/colcon_ws
 source /opt/ros/noetic/setup.bash
 source /opt/ros/foxy/setup.bash
 ros2 bag play -r 0.07 -s rosbag_v2 camera_2023-07-26-09-55-05_2.bag
+<!-- ros2 bag play -r 0.07 -s rosbag_v2 camera_2023-06-30-08-58-37_2.bag -->
 ```
 
 Визуализировать результаты работы можно с помощью rviz

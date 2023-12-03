@@ -378,6 +378,11 @@ class Visualizer:
             instance_mode (ColorMode): defines one of the pre-defined style for drawing
                 instances on an image.
         """
+
+        print(cat_num)
+        print(type(cat_num))
+
+        
         self.img = np.asarray(img_rgb).clip(0, 255).astype(np.uint8)
         self.cat_num=cat_num
 

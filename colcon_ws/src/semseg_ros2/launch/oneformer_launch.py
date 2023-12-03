@@ -70,6 +70,12 @@ def generate_launch_description():
                 ('segmentation', launch.substitutions.LaunchConfiguration('segmentation_topic')),
                 ('segmentation_color', launch.substitutions.LaunchConfiguration('segmentation_color_topic'))
             ],
+            parameters=[
+                {
+                    'cat_num': launch.substitutions.LaunchConfiguration('cat_num'),
+                    # 'treshold': launch.substitutions.LaunchConfiguration('treshold')
+                }
+            ],
             output="screen"
         )
     ])

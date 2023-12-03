@@ -16,6 +16,12 @@ class VisualizerNode(Node):
     def __init__(self):
         super().__init__('visualizer_node')
 
+        self.declare_parameter('cat_num')
+        self.cat_num = self.get_parameter('cat_num').get_parameter_value().integer_value
+
+        print(self.cat_num)
+        print(type(self.cat_num))
+
         image_sub = message_filters.Subscriber(self, Image, 'image')
         segmentation_sub = message_filters.Subscriber(self, Image, 'segmentation')
 
@@ -31,7 +37,7 @@ class VisualizerNode(Node):
         image = self.br.imgmsg_to_cv2(image_msg, desired_encoding='bgr8')
         segmentation = self.br.imgmsg_to_cv2(segm_msg, desired_encoding='mono8')
 
-        visualizer = Visualizer(image, instance_mode=ColorMode.IMAGE_BW)
+        visualizer = Visualizer(image, self.cat_num, instance_mode=ColorMode.IMAGE_BW)
 
         segmentation_color = visualizer.draw_sem_seg(segmentation, alpha=0.7)
         segmentation_color = segmentation_color.get_image()

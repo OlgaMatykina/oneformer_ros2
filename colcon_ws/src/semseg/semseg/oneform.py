@@ -32,8 +32,8 @@ class SemanticSegmentator:
         #     6: 'sidewalk',
         #     7: 'terrain',
         #     8: 'road'}
-        print(cat_num)
-        print(type(cat_num))
+        # print(cat_num)
+        # print(type(cat_num))
         self.cat_num=cat_num
         if self.cat_num==10:
             meta_clss = {0: 'unlabelled',

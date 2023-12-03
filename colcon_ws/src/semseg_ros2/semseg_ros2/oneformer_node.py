@@ -24,8 +24,8 @@ class SemSegNode(Node):
         # self.treshold = self.get_parameter('treshold').get_parameter_value().double_value
 
 
-        print(self.cat_num)
-        print(type(self.cat_num))
+        # print(self.cat_num)
+        # print(type(self.cat_num))
 
         self.segmentator = SemanticSegmentator(self.cfg, self.cat_num)
 

@@ -25,7 +25,7 @@ setup(
         'console_scripts': [
             'oneformer_node = semseg_ros2.oneformer_node:main',
             'visualizer_node = semseg_ros2.visualizer_node:main',
-            'inference_meter_node = semseg_ros2.inference_meter_node:main',
+            # 'inference_meter_node = semseg_ros2.inference_meter_node:main',
         ],
     },
 )
