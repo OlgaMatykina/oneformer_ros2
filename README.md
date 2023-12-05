@@ -2,21 +2,21 @@
 а) обученная на 10 категориях:  
       0: 'unlabelled',  
       1: 'firehose',  
-      2: 'hose',
-      3: 'waste',
-      4: 'puddle',
-      5: 'breakroad',
-      6: 'sidewalk',
-      7: 'terrain',
-      8: 'vegetation',
-      9: 'road'
-б) обученная на 6 категориях:
-      0: 'unlabelled',
-      1: 'breakroad',
-      2: 'sidewalk',
-      3: 'terrain',
-      4: 'vegetation',
-      5: 'road'
+      2: 'hose',  
+      3: 'waste',  
+      4: 'puddle',  
+      5: 'breakroad',  
+      6: 'sidewalk',  
+      7: 'terrain',  
+      8: 'vegetation',  
+      9: 'road'  
+б) обученная на 6 категориях:  
+      0: 'unlabelled',  
+      1: 'breakroad',  
+      2: 'sidewalk',  
+      3: 'terrain',  
+      4: 'vegetation',  
+      5: 'road'  
 
 Для визуализации результатов сегментации были выбраны следующие цвета:
 
