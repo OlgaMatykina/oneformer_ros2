@@ -20,16 +20,16 @@
 
 Для визуализации результатов сегментации были выбраны следующие цвета:
 
-0. 'unlabelled' :(255,255,255), # white
-1. 'firehose' :(255,0,0), # red
-2. 'hose' :(255,165,0), # orange
-3. 'waste' :(0,0,255), # blue
-4. 'puddle' :(255,255,0), # yellow
-5. 'breakroad' :(0,255,255), # aqua
-6. 'sidewalk' :(255,0,255), # magenta
-7. 'terrain' :(0,128,0), # green
-8. 'vegetation' :(127,72,41), # brown
-9. 'road' :(250,128,114) # salmon
+0. 'unlabelled' : (255,255,255), # white
+1. 'firehose' : (255,0,0), <font color=#FF0000># red </font>
+2. 'hose' :(255,165,0), <font color=#FFA500># orange </font>
+3. 'waste' :(0,0,255), <font color=#0000FF># blue </font>
+4. 'puddle' :(255,255,0), <font color=#FFFF00># yellow </font>
+5. 'breakroad' :(0,255,255), <font color=#00FFFF># aqua </font>
+6. 'sidewalk' :(255,0,255), <font color=#FF00FF># magenta </font>
+7. 'terrain' :(0,128,0), <font color=#008000># green </font>
+8. 'vegetation' :(127,72,41), <font color=#7F4829># brown </font>
+9. 'road' :(250,128,114) <font color=#FA8072># salmon </font>
 
 # oneformer_ros2
 
