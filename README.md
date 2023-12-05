@@ -1,22 +1,22 @@
 Репозиторий создан для решения задачи семантической сегментации видеоизображения при движении по пешеходным зонам с выделением на них участков с дефектным дорожным покрытием (выбоины, ямы), тротуаров, асфальтированных дорог. Семантическая сегментация производится моделью OneFormer. Есть возможность проводить сегментацию двумя вариантами модели:  
 а) обученная на 10 категориях:  
 &emsp; &emsp;0: 'unlabelled',  
-&emspemsp;1: 'firehose',  
-      2: 'hose',  
-      3: 'waste',  
-      4: 'puddle',  
-      5: 'breakroad',  
-      6: 'sidewalk',  
-      7: 'terrain',  
-      8: 'vegetation',  
-      9: 'road'  
+&emsp; &emsp;1: 'firehose',  
+&emsp; &emsp;2: 'hose',  
+&emsp; &emsp;3: 'waste',  
+&emsp; &emsp;4: 'puddle',  
+&emsp; &emsp;5: 'breakroad',  
+&emsp; &emsp;6: 'sidewalk',  
+&emsp; &emsp;7: 'terrain',  
+&emsp; &emsp;8: 'vegetation',  
+&emsp; &emsp;9: 'road'  
 б) обученная на 6 категориях:  
-      0: 'unlabelled',  
-      1: 'breakroad',  
-      2: 'sidewalk',  
-      3: 'terrain',  
-      4: 'vegetation',  
-      5: 'road'  
+&emsp; &emsp;0: 'unlabelled',  
+&emsp; &emsp;1: 'breakroad',  
+&emsp; &emsp;2: 'sidewalk',  
+&emsp; &emsp;3: 'terrain',  
+&emsp; &emsp;4: 'vegetation',  
+&emsp; &emsp;5: 'road'  
 
 Для визуализации результатов сегментации были выбраны следующие цвета:
 
