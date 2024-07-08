@@ -13,7 +13,7 @@ ftfy==6.1.1
 regex==2022.6.2
 inflect==5.6.0
 diffdist==0.1
-pytorch_lightning==1.6.4
+pytorch_lightning==1.9.0
 tqdm==4.64.0
 mmcv==1.6.2
 # -f https://shi-labs.com/natten/wheels/cu111/torch1.9/index.html  

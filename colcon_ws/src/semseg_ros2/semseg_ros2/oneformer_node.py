@@ -3,7 +3,7 @@ import cv2
 
 from rclpy.node import Node
 from cv_bridge import CvBridge
-from sensor_msgs.msg import Image
+from sensor_msgs.msg import Image, CompressedImage
 
 from semseg.oneform import SemanticSegmentator
 from semseg_ros2.inference_speed_meter import InferenceSpeedMeter
@@ -31,20 +31,20 @@ class SemSegNode(Node):
 
         self.br = CvBridge()
 
-        self.sub_image = self.create_subscription(Image, 'image', self.on_image, 10)
+        self.sub_image = self.create_subscription(CompressedImage, 'image', self.on_image, 10)
         self.pub_segmentation = self.create_publisher(Image, 'segmentation', 10)
 
         self.speed_meter = InferenceSpeedMeter()
 
 
-    def on_image(self, image_msg : Image):
-        image = self.br.imgmsg_to_cv2(image_msg, desired_encoding='bgr8')
+    def on_image(self, image_msg : CompressedImage):
+        image = self.br.compressed_imgmsg_to_cv2(image_msg, desired_encoding='bgr8')
 
         self.speed_meter.start()
         segmentation = self.segmentator.inference(image)
-        # print(segmentation)
-        # cv2.imwrite('/home/docker_oneformer_ros2/colcon_ws/src/semseg_ros2/semseg_ros2/visualizer_images/2.jpg', segmentation)
-        # cv2.imwrite('/home/docker_oneformer_ros2/colcon_ws/src/semseg_ros2/semseg_ros2/visualizer_images/2.jpg', self.segmentator.colorize(segmentation))
+        print(segmentation)
+        cv2.imwrite('/home/docker_oneformer_ros2/colcon_ws/src/semseg_ros2/semseg_ros2/1.png', segmentation)
+        cv2.imwrite('/home/docker_oneformer_ros2/colcon_ws/src/semseg_ros2/semseg_ros2/2.png', self.segmentator.colorize(segmentation))
         self.speed_meter.stop()
 
         segmentation_msg = self.br.cv2_to_imgmsg(segmentation, 'mono8')

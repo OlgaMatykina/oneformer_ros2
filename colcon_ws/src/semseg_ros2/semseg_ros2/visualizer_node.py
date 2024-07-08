@@ -5,7 +5,7 @@ import message_filters
 
 from rclpy.node import Node
 from cv_bridge import CvBridge
-from sensor_msgs.msg import Image
+from sensor_msgs.msg import Image, CompressedImage
 
 from semseg.oneform import SemanticSegmentator
 from semseg.visualizer import ColorMode, Visualizer
@@ -22,7 +22,7 @@ class VisualizerNode(Node):
         print(self.cat_num)
         print(type(self.cat_num))
 
-        image_sub = message_filters.Subscriber(self, Image, 'image')
+        image_sub = message_filters.Subscriber(self, CompressedImage, 'image')
         segmentation_sub = message_filters.Subscriber(self, Image, 'segmentation')
 
         self.ts = message_filters.TimeSynchronizer([image_sub, segmentation_sub], 10)
@@ -33,8 +33,8 @@ class VisualizerNode(Node):
         self.br = CvBridge()
 
 
-    def on_image_segmentation(self, image_msg : Image, segm_msg : Image):
-        image = self.br.imgmsg_to_cv2(image_msg, desired_encoding='bgr8')
+    def on_image_segmentation(self, image_msg : CompressedImage, segm_msg : Image):
+        image = self.br.compressed_imgmsg_to_cv2(image_msg, desired_encoding='bgr8')
         segmentation = self.br.imgmsg_to_cv2(segm_msg, desired_encoding='mono8')
 
         visualizer = Visualizer(image, self.cat_num, instance_mode=ColorMode.IMAGE_BW)

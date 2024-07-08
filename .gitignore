@@ -10,3 +10,4 @@
 /colcon_ws/src/semseg/oneformer/__pycache__
 /colcon_ws/src/semseg/semseg/__pycache__
 /colcon_ws/src/semseg_ros2/semseg_ros2/__pycache__/*
+__pycache__
