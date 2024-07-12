@@ -29,8 +29,9 @@ docker run -it -d --rm  --gpus all \
         --env="QT_X11_NO_MITSHM=1" \
         --privileged \
         --name oneformer_ros2 \
-        --net "host" \
         -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
         -v /home/matykina_ov/oneformer_ros2/colcon_ws:/home/docker_oneformer_ros2/colcon_ws:rw \
         ${ARCH}foxy/semseg:latest
 xhost -
+
+# --net "host" \
